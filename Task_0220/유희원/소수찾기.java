@@ -16,6 +16,7 @@ class Solution {
             usedNumbers[i] = false;
         }
 
+	    //nP1~nPn 다 구함
         for(int r=1; r<=numbersArr.length; r++){
             getResult(numbersArr, usedNumbers, "", r, 0);
         }
@@ -23,6 +24,7 @@ class Solution {
         return answer;
     }
     
+	//전체 숫자의 경우의수를 구하는데 r개 되면 중복, 소수 판단
     public static void getResult(int[] numbersArr, boolean[] usedNumbers, String num, int r, int current){
         
         if(current >= r){
@@ -67,7 +69,7 @@ class Solution {
 		if (num % 2 == 0 || num == 1)
 			return false;
 
-		// 제곱근까지만 홀수로 나눠보면 됨
+		// 제곱근까지만 홀수로 나눠보면 됨 - 아리스토테네스의 체....wow...
 		for (int i = 3; i <= sqrt; i += 2) {
 			if (num % i == 0)
 				return false;
