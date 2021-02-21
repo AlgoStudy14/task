@@ -28,8 +28,6 @@ public class Solution_D3_7272 {
 			left = a.toCharArray();
 			right = b.toCharArray();
 			for(int i = 0; i < left.length; i++) {
-				System.out.println("왼쪽 : " + left[i] + ", 오른쪽 : " + right[i]);
-				System.out.println("왼쪽 : " + alpha[left[i] - 'A'] + ", 오른쪽 : " + alpha[right[i] - 'A']);
 				if(a.length() != b.length()) {
 					flag= false;
 					break;
