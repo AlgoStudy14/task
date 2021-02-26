@@ -1,5 +1,3 @@
-package algo210227;
-
 import java.util.Scanner;
 /**
  * <문제 요약>
@@ -13,7 +11,7 @@ import java.util.Scanner;
  * 2. 단어에서 제외한 후, 나머지 알파벳은 한 글자씩 센다. 
  *
  */
-public class BOJ_2941_크로아티아알파벳 {
+public class BOJ_S5_2941 {
 
 	static String[] alphabet = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
 	static boolean[] visited;	//방문을 체크하는 배열 
