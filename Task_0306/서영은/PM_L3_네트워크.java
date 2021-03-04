@@ -16,7 +16,7 @@ package algo210306;
  * 아직 방문하지 않은 점이고, 1이면 계속 타고 들어간 후에 방문 표시를 해준다.
  *
  */
-public class PM_L2_네트워크 {
+public class PM_L3_네트워크 {
 
 	public static void main(String[] args) {
 //		int[][] com = {{1,1,0},{1,1,0},{0,0,1}};
