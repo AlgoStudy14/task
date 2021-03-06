@@ -23,7 +23,6 @@ public class PM_L3_여행경로 {
 	}
 
 	Stack<String> result = new Stack<String>();
-	int idx = 1;
 	boolean[] visited;
 	boolean flag = false;
 
