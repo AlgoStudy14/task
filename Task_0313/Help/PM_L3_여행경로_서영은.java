@@ -28,6 +28,8 @@ import java.util.Comparator;
 // 아마도, 해당 로직이면 main 부분의 for문을 제외하고 바로 dfs로 진입해도 무관할 것이다.
 // 다만, 말하고 싶은것은 DFS는 종료 조건에서 끝나는것이 아닌 나머지 로직도 수행을 해야  한다는 점.
 // 기본적으로 DFS는 Depth first 'Search'라는 점을 이해하고 계셔야함(종료 조건에 상관없이 모두 탐색한다)(트리 탐색).
+// 		String[][] tickets = { { "B", "A" }, { "ICN", "B" }, { "B", "ICN" }, { "A", "ICN" }, { "ICN", "A" }, };
+// 		System.out.println(pm.solution(tickets));
 public class PM_L3_여행경로 {
 
 	public static void main(String[] args) {
