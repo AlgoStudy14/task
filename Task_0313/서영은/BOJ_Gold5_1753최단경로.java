@@ -38,7 +38,7 @@ class Node implements Comparable<Node> {
 	}
 }
 
-public class BOJ_Gold5_최단경로 {
+public class BOJ_Gold5_1753최단경로 {
 	static int[] dist;
 	static List<Node>[] list;
 	static int v, e, startV;
