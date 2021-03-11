@@ -11,10 +11,6 @@ import java.util.*;
  * 티켓을 사용했는지 체크하는 flag배열을 만듬
  * 시작지점 비교 및 flag = true를 만족하는 dfs를 돌림.
  * dfs를 돌린 횟수가 티켓수와 같으면 true를 리턴.(-> 만약 경로가 짜여지면 나머지 과정을 수행하지 않음)
- * 
- * <문제점>
- * 구글링 & 질문에서 나온 모든 반례를 다 해봤는데 제대로 돌아감
- * 근데 1번이 자꾸 틀렸다고 나옴!!
  */
 public class DFS_여행경로 {
 
@@ -45,36 +41,16 @@ public class DFS_여행경로 {
 						return -1;
 				}
 
-				/* 혹시 "A"와 "AB"도시를 비교할 때 순서차이에 따라 값이 달라질 수 도 있을것 같아서 넣었는데 똑같이 틀렸다 나옴
-				if (arr1[0].length() > arr2[0].length())
-					return -1;
-				else if (arr1[0].length() < arr2[0].length())
-					return 1;
-				*/
-
 				for (int i = 0; i < Math.min(arr1[1].length(), arr2[1].length()); i++) {
 					if ((int) arr1[1].charAt(i) > (int) arr2[1].charAt(i))
 						return 1;
-					else
+					else if ((int) arr1[1].charAt(i) < (int) arr2[1].charAt(i))
 						return -1;
 				}
-
-				/* 위에랑 똑같은 가정으로 조건만들었음
-				if (arr1[1].length() > arr2[1].length())
-					return -1;
-				else if (arr1[1].length() < arr2[1].length())
-					return 1;
-				*/
 				
 				return 0;
 			}
 		});
-
-		/* tickets 출력찍어보는거
-		for (int i = 0; i < tickets.length; i++) {
-			System.out.println(tickets[i][0] + "   " + tickets[i][1]);
-		}
-		*/
 
 		boolean end = dfs("ICN", 0, tickets, tickets.length); // dfs 돌린다~!
 		return answer;
