@@ -1,5 +1,9 @@
 package algo0315;
-
+//bfs문제
+//arraylist에 배열 값 저장한다. 저장할때는 from,to 방식으로 저장
+//처음 start와 같은 출발인걸 먼저 queue에 저장하고 bfs를 돌린다.
+//bfs에서 from to를 활용해 같은 노두 수에 있는 경우들을 탐색한다.
+//테스트케이스 반은 맞고 반은 틀린....
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
