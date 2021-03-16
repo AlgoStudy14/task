@@ -57,7 +57,7 @@ public class Solution_D4_1238 {
 				}
 			}
 
-			// 방문 지점의 최대값과 해동 노드 번호를 구한다.
+			// 방문 지점의 최대값과 해당 노드 번호를 구한다.
 			int max = Integer.MIN_VALUE;
 			int res = 0;
 			for (int i = 1; i < 101; i++) {
