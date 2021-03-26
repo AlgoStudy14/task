@@ -1,5 +1,8 @@
 package algo0326;
 
+//가장 큰것부터 시작하는 DFS
+//k만큼 자를 수 있다. 여기서 조심할거는 k만큼이 아니라 1~k만큼이라는거
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
