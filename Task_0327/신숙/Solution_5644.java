@@ -25,7 +25,7 @@ public class Solution_5644 {
 	 *  3. 하나의 List만 0이라면 다른 List의 최대값만 확인하면됨.
 	 *  4. 둘다 0이 아닐때, 둘의 경우의 수를 보아서 최대 충전량 확인.
 	 *  
-	 *   추가 : 아래는 List로 되어 있지만, PriorityQueue로 a위치의 BC값과 b위치의 BC들을 계산했으면 for문은 더 안돌고 쉬웠을듯
+	 *   추가 : 아래는 List로 되어 있지만, PriorityQueue로 a위치의 BC값과 b위치의 BC들을 계산했으면 for문은 더 안돌고 쉬웠을듯 or BC class로 만들고 comparator
 	 */
 	static int[][] bc;
 	static int[][] user;
