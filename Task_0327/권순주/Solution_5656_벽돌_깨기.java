@@ -78,16 +78,15 @@ public class Solution_5656_벽돌_깨기 {
 				}
 			}
 			answer = blockCount; // answer에 처음 벽돌의 총 개수 저장 -> 나중에 줄여나감
-			solve(0, 0, 0);
+			solve(0, 0);
 			System.out.printf("#%d %d\n", t, answer);
 		}
 	}
 
 	// solve 함수
-	// y : 위치할 행의 위치
 	// cnt : 사용한 구슬의 개수
 	// sum : 총 깨지는 벽돌의 개수
-	private static void solve(int y, int cnt, int sum) {
+	private static void solve(int cnt, int sum) {
 		if (cnt == N) { // 구슬을 다 사용했을 때
 			answer = Math.min(answer, blockCount - sum); // answer 저장
 			return;
@@ -96,7 +95,7 @@ public class Solution_5656_벽돌_깨기 {
 			int[][] tmp = copy(); // 원래 가지고 있었던 map 저장
 			map = bomb(findX(i), i); // i행에 구슬을 놓았을 때, 벽돌들이 제거된 후의 map
 			if ((blockCount - sum) != count) { // 만약 구슬이 다 깨지지 않았다면
-				solve(i, cnt + 1, sum + count); // cnt + 1 (구슬 추가), sum + count (깨진 벽돌의 수 추가)
+				solve(cnt + 1, sum + count); // cnt + 1 (구슬 추가), sum + count (깨진 벽돌의 수 추가)
 			} else { // 만약 구슬이 다 깨졌다면
 				answer = 0; // 남은 벽돌의 개수 = 0
 				return; // 끝!
