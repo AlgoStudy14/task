@@ -19,7 +19,8 @@ import java.util.StringTokenizer;
  * 1. 1 -> V1 -> V2 -> N으로 가는 경우와, 1 -> V2 -> V1 -> N 으로 가는 경우를 구한다.
  * 2. 둘 중 작은 값을 구하고 만약 값이 답이 아닐경우 -1을 출력한다.
  * 
- * 100%에서 틀리는데 왜 틀릴까...망할....
+ * 100%에서 틀리는데 왜 틀릴까...망할....ㅋㅋㅋ
+ * = 안붙여서 하나 틀렸었음...
  * 
  */
 
@@ -82,7 +83,8 @@ public class BOJ_G4_1504_특정한최단경로 {
 		
 		int cost = Math.min(ans1, ans2);
 		
-		if(cost > MAX) {
+		// 여기에 = 안붙여서 틀림...망할...
+		if(cost >= MAX) {
 			System.out.println(-1);
 		}else {
 			System.out.println(cost);
