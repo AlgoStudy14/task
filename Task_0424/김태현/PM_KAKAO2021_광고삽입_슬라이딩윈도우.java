@@ -18,6 +18,7 @@ public class PM_KAKAO2021_광고삽입_슬라이딩윈도우 {
 		solution(playtime, advtime, logs);
 				
 	}
+	
 	public static String solution(String play_time, String adv_time, String[] logs) {
 		// 플레이 시간과 광고 시간이 같은 경우는 시작점 리턴
 		if (play_time.equals(adv_time)) {
@@ -47,7 +48,6 @@ public class PM_KAKAO2021_광고삽입_슬라이딩윈도우 {
 		int start = 0;
 		// play 타임의 마지막 시간도 포함해야 한다(주의).
 		while (e != play + 1) {
-			System.out.println("aa");
 			// 총 구간의 길이가 광고 시간보다 작다면 런타임을 더해주며 구간 확장.
 			if (e - s < adv) {
 				run += cnt[e++];
@@ -68,7 +68,6 @@ public class PM_KAKAO2021_광고삽입_슬라이딩윈도우 {
 		int h = start / 3600;
 		int m = (start % 3600) / 60;
 		int sec = (start % 3600) % 60;
-		System.out.println(sec);
 		String answer = "";
 		if (h < 10) {
 			answer += "0" + h + ":";
@@ -85,7 +84,6 @@ public class PM_KAKAO2021_광고삽입_슬라이딩윈도우 {
 		} else {
 			answer += sec;
 		}
-		System.out.println(answer);
 
 		return answer;
 	}
