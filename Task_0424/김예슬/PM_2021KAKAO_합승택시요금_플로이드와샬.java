@@ -46,8 +46,6 @@ public class PM_2021KAKAO_합승택시요금_플로이드와샬 {
 		
 		floyd(N);
 
-		for (int i = 0; i < N; i++)
-			System.out.println(Arrays.toString(adjMatrix[i]));
 		return getMin(N, S - 1, A - 1, B - 1);
 	}
 	
