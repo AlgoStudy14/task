@@ -40,7 +40,7 @@ public class BOJ_Silver1_구간합구하기5 {
             y1 = sc.nextInt();
             x2 = sc.nextInt();
             y2 = sc.nextInt();
-            //합구하기. => 이러면 dp 식이 아래가아니라 위에 있어야함.		=>  구글 참조.
+            //합구하기. => 이러면 dp 식이 아래가아니라 위에 있어야함.
             ans.add(dp[x2][y2] - dp[x1 - 1][y2] - dp[x2][y1 - 1] + dp[x1 - 1][y1 - 1]);
         }
 	    for(int i = 0; i < M; i++)
