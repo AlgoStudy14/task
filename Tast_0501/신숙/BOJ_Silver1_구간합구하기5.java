@@ -36,14 +36,14 @@ public class BOJ_Silver1_구간합구하기5 {
 		    	   dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] + map[i][j];
 		}
 		for(int k = 0; k < M; k++) {
-            x1 = sc.nextInt();
-            y1 = sc.nextInt();
-            x2 = sc.nextInt();
-            y2 = sc.nextInt();
-            //합구하기. => 이러면 dp 식이 아래가아니라 위에 있어야함.
-            ans.add(dp[x2][y2] - dp[x1 - 1][y2] - dp[x2][y1 - 1] + dp[x1 - 1][y1 - 1]);
-        }
-	    for(int i = 0; i < M; i++)
-	    	System.out.println(ans.get(i));
+			x1 = sc.nextInt();
+           		y1 = sc.nextInt();
+            		x2 = sc.nextInt();
+            		y2 = sc.nextInt();
+           		 //합구하기. => 이러면 dp 식이 아래가아니라 위에 있어야함.
+            		ans.add(dp[x2][y2] - dp[x1 - 1][y2] - dp[x2][y1 - 1] + dp[x1 - 1][y1 - 1]);
+       	 	}
+	    	for(int i = 0; i < M; i++)
+	    		System.out.println(ans.get(i));
 	}
 }
