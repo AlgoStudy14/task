@@ -1,7 +1,5 @@
 package algo0509;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -26,7 +24,7 @@ import java.util.Scanner;
 public class BOJ_G2_21609_상어중학교 {
 
 	static int N, M, rainbowCnt, score;
-	static int[][] map;
+	static int[][] map, copy;
 	static PriorityQueue<Pos> big;
 	static int[] dx = {1, 0, -1, 0};
 	static int[] dy = {0, -1, 0, 1};
@@ -56,11 +54,11 @@ public class BOJ_G2_21609_상어중학교 {
 		N = sc.nextInt();
 		M = sc.nextInt();
 		map = new int[N][N];
+		copy = new int[N][N];
 		
 		for (int i = 0; i < N * N; i++)
 			map[i / N][i % N] = sc.nextInt();
 		
-		int dir = 0;
 		while (true) {
 			find(new boolean[N][N]);
 
@@ -69,39 +67,15 @@ public class BOJ_G2_21609_상어중학교 {
 			if (size < 2) break;
 			
 			// 점수 획득
-			System.out.println(size * size);
 			score += size * size;
 
 			// 블록제거 후 중력
 			remove();
+			gravity();
 			
-			System.out.println("===========>제거");
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					System.out.printf("%3d ",map[i][j]);
-				}
-				System.out.println();
-			}
-			gravity(dir);
-			
-			System.out.println("===========>중력1=>>"+dir);
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					System.out.printf("%3d ",map[i][j]);
-				}
-				System.out.println();
-			}
 			// 90도 회전 후 중력
-			dir = (dir + 1) % 4;
-			gravity(dir);
-			
-			System.out.println("===========>중력2=>>"+dir);
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					System.out.printf("%3d ",map[i][j]);
-				}
-				System.out.println();
-			}
+			rotate();
+			gravity();
 		}
 		
 		System.out.println(score);
@@ -182,86 +156,35 @@ public class BOJ_G2_21609_상어중학교 {
 			map[p.x][p.y] = -2;
 	}
 	
-	// x y x y
-	// 중력(회전방향) ↓ ←- ↑ -→
-	static void gravity(int dir) {
-		switch (dir) {
-		case 0:
-			for (int i = N - 2; i >= 0; i--) {
-				for (int j = 0; j < N; j++) {
-					if (map[i][j] < 0) continue;
-					
-					int block = map[i][j];
-					
-					int nx = i;
-					while (true) {
-						++nx;
-						if (nx == N) break;
-						if (map[nx][j] != -2) break;
-					}
-					
-					map[i][j] = -2;
-					map[--nx][j] = block;
-				}
+	static void rotate() {
+		for (int j = 0; j < N; j++) {
+			for (int i = 0; i < N; i++) {
+				copy[N - j - 1][i] = map[i][j];
 			}
-			break;
-		case 1:
-			for (int i = 1; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					if (map[j][i] < 0) continue;
-					
-					int block = map[j][i];
-					
-					int nx = i;
-					while (true) {
-						--nx;
-						if (nx == -1) break;
-						if (map[j][nx] != -2) break;
-					}
-					
-					map[j][i] = -2;
-					map[j][++nx] = block;
+		}
+		
+		for (int i = 0; i < N; i++)
+			System.arraycopy(copy[i], 0, map[i], 0, N);
+	}
+	
+	// 중력
+	static void gravity() {
+		for (int i = N - 2; i >= 0; i--) {
+			for (int j = 0; j < N; j++) {
+				if (map[i][j] < 0) continue;
+				
+				int block = map[i][j];
+				
+				int nx = i;
+				while (true) {
+					++nx;
+					if (nx == N) break;
+					if (map[nx][j] != -2) break;
 				}
-			}	
-			break;
-		case 2:
-			for (int i = 1; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					if (map[i][j] < 0) continue;
-					
-					int block = map[i][j];
-					
-					int nx = i;
-					while (true) {
-						--nx;
-						if (nx == -1) break;
-						if (map[nx][j] != -2) break;
-					}
-					
-					map[i][j] = -2;
-					map[++nx][j] = block;
-				}
+				
+				map[i][j] = -2;
+				map[--nx][j] = block;
 			}
-			break;
-		case 3:
-			for (int i = N - 2; i >= 0; i--) {
-				for (int j = 0; j < N; j++) {
-					if (map[j][i] < 0) continue;
-					
-					int block = map[j][i];
-					
-					int nx = i;
-					while (true) {
-						++nx;
-						if (nx == N) break;
-						if (map[j][nx] != -2) break;
-					}
-					
-					map[j][i] = -2;
-					map[j][--nx] = block;
-				}
-			}			
-			break;
 		}
 	}
 }
