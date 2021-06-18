@@ -19,20 +19,20 @@ public class BOJ_S1_경로찾기 {
 	static int[][] map;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        boolean[][] map = new boolean[N][N];
+        	int N = Integer.parseInt(br.readLine());
+        	boolean[][] map = new boolean[N][N];
 
-        for (int i = 0; i < N; i++) {
-            String[] input = br.readLine().split(" ");
-            for (int j = 0; j < N; j++)
-                map[i][j] = input[j].charAt(0) == '1';
-        }
+        	for (int i = 0; i < N; i++) {
+			String[] input = br.readLine().split(" ");
+           		for (int j = 0; j < N; j++)
+                		map[i][j] = input[j].charAt(0) == '1';
+        	}
 
-        for (int k = 0; k < N; k++)
-            for (int i = 0; i < N; i++)
-                for (int j = 0; j < N; j++)
-                    if (map[i][k] & map[k][j])
-                        map[i][j] = true;
+        	for (int k = 0; k < N; k++)
+            		for (int i = 0; i < N; i++)
+				for (int j = 0; j < N; j++)
+                    			if (map[i][k] & map[k][j])
+                        			map[i][j] = true;
 
 		for(int i=0;i<N;i++) {
 			for(int j=0;j<N;j++) {
