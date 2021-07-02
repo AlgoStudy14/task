@@ -1,48 +1,25 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class BOJ_6603_로또 {
+public class BOJ_9251_LCS {
 
-
-	static int k,R;
-	static int[] num, target;
-	static int tot;
+	static char[] str1;
+	static char[] str2;
+	static Integer[][] dp;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		while(true) {
-			
-			k=sc.nextInt();
-			if(k==0) break;
-			R=6;
-			target = new int[k];
-			num = new int[R];
-			for (int i = 0; i < k; i++) {
-				target[i] = sc.nextInt();
-			}
-			tot =0;
-			nCr(0,0);
-			System.out.println();
-		}
-		
+		str1 = sc.nextLine().toCharArray(); //문자열 -> char[]
+		str2 = sc.nextLine().toCharArray();
+		dp = new Integer[str1.length][str2.length];
+		System.out.println(LCS(str1.length-1,str2.length-1));
 	}
-
-	private static void nCr(int start, int cnt) {
-		if(cnt==R) { //R개를 얻으면
-			tot++;
-			//System.out.println(Arrays.toString(num));
-			for (int i = 0; i < 6; i++) {
-				System.out.print(num[i]+" ");
-			}
-			System.out.println();
-			return; //매우 중요
-			
+	private static int LCS(int i, int j) {
+		if(i==-1||j==-1) return 0; //범위밖
+		if(dp[i][j]==null) { //탐색 안한경우. 여길 Null 비교 하려고 Integer형 배열
+			dp[i][j] = 0;
+			if(str1[i]==str2[j]) dp[i][j] = LCS(i-1,j-1)+1;
+			else dp[i][j] = Math.max(LCS(i-1, j), LCS(i, j-1));
 		}
-		for (int i = start; i < k; i++) {
-			num[cnt]=target[i]; //또는i+1
-			nCr(i+1, cnt+1); //start가 아닌 i 인것에 주의!!!!
-		}
-		
-		
+		return dp[i][j];
 	}
 
 }
