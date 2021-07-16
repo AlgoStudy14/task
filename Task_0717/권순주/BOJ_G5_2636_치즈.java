@@ -6,6 +6,18 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/* (완)
+ * <문제 요약>
+ * 문제 정의 : 공기 중에서 치즈가 모두 녹아 없어지는데 걸리는 시간과 모두 녹기 한 시간 전에 남아있는 치즈 조각의 개수
+ * 문제 유형 : BFS
+ * 제약 사항 : 테두리가 비어있음
+ * 
+ * <피드백>
+ * BFS 오랜만에 풀어보는데 가끔 풀어봐야 할 거 같다..ㅎㅎ
+ * 그리고 매번 BFS 돌리는거 말고 뭔가 좋은 풀이가 있을까?? 고민되는 문제
+ * 
+ */
+
 public class BOJ_G5_2636_치즈 {
 
 	static class Point {

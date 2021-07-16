@@ -2,6 +2,17 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/* (완)
+ * <문제 요약>
+ * 문제 정의 : 도둑이 붙잡히지 않고 무사히 마을을 빠져나가기 위한 방법의 수 
+ * 문제 유형 : 슬라이딩 윈도우
+ * 제약 사항 : 집들이 원이기 때문에 right 처리를 right % N으로 해줘야 한다
+ * 
+ * <피드백>
+ * 투 포인터, 누적합, 슬라이딩 윈도우 풀이법은 단순하다! 기억만 잘 해두자!!
+ * 
+ */
+
 public class BOJ_G4_13422_도둑 {
 
 	static int T, N, M, K;
