@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-- KMP 알고리즘을 통하여 구현한다
-
-- 일치하는 문자열이 있는 경우, Cnt++를 시키고, 해당 Index를 Li 리스트에 담는다
-
-- 모두 검사한 후, Cnt와 Li에 있는 원소를 전부 출력한다 
+- KMP 알고리즘
+- 일치하는 문자열이 있는 경우, Cnt++, 그 Index를 Li 리스트에 담기
+- 모두 검사한 후, Cnt와 Li에 있는 원소를 전부 출력
  */
 
 public class BOJ_1786_찾기 {
