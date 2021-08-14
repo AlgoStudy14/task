@@ -3,30 +3,30 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * <¹®Á¦ ¿ä¾à>
- * ¹®Á¦ Á¤ÀÇ : K°³ÀÇ ±ÛÀÚ¸¦ °¡¸£Ä¥ ¶§, ÇÐ»ýµéÀÌ ÀÐÀ» ¼ö ÀÖ´Â ´Ü¾îÀÇ °³¼öÀÇ ÃÖ´ñ°ª ±¸ÇÏ±â
- * ¹®Á¦ À¯Çü : Á¶ÇÕ
+ * <ë¬¸ì œ ìš”ì•½>
+ * ë¬¸ì œ ì •ì˜ : Kê°œì˜ ê¸€ìžë¥¼ ê°€ë¥´ì¹  ë•Œ, í•™ìƒë“¤ì´ ì½ì„ ìˆ˜ ìžˆëŠ” ë‹¨ì–´ì˜ ê°œìˆ˜ì˜ ìµœëŒ“ê°’ êµ¬í•˜ê¸°
+ * ë¬¸ì œ ìœ í˜• : ì¡°í•©
  * 
- * <Ç®ÀÌ¹ý ¿ä¾à>
+ * <í’€ì´ë²• ìš”ì•½>
  * 
- * ¹«Á¶°Ç a n t i c 5°³ÀÇ ¾ËÆÄºªÀº ÀÐÀ» ¼ö ÀÖ¾î¾ßÇÑ´Ù!
+ * ë¬´ì¡°ê±´ a n t i c 5ê°œì˜ ì•ŒíŒŒë²³ì€ ì½ì„ ìˆ˜ ìžˆì–´ì•¼í•œë‹¤!
  * 
- * -- Å«Æ² --
- * 1. a n t i c 5°³¸¦ Á¦¿ÜÇÑ (K-1)°³ÀÇ ¾ËÆÄºªÀÇ Á¶ÇÕÀ» ±¸ÇÑ´Ù
- * 2. ÇØ´ç Á¶ÇÕÀ» »ç¿ëÇÏ¿© ´Ü¾î¸¦ ÀÐ´Â´Ù
+ * -- í°í‹€ --
+ * 1. a n t i c 5ê°œë¥¼ ì œì™¸í•œ (K-5)ê°œì˜ ì•ŒíŒŒë²³ì˜ ì¡°í•©ì„ êµ¬í•œë‹¤
+ * 2. í•´ë‹¹ ì¡°í•©ì„ ì‚¬ìš©í•˜ì—¬ ë‹¨ì–´ë¥¼ ì½ëŠ”ë‹¤
  * 
- * -- Ç®ÀÌ¹ý --
- * (1) K°¡ 26°³¸é ¸ðµç ´Ü¾î¸¦ ÀÐÀ» ¼ö ÀÖ±â ¶§¹®¿¡ NÀ» Ãâ·ÂÇÑ´Ù.
- * (2) K°¡ 5 ¹Ì¸¸ÀÌ¸é ÀÐÀ» ¼ö ¾ø±â ¶§¹®¿¡  0À» Ãâ·ÂÇÑ´Ù.
- * (3) ±×¿Ü´Â a n t i c¸¦ ¸ðµÎ ¾Ë°íÀÖÀ½À¸·Î Ã¼Å© + K¿¡¼­ 5¸¦ »©ÁØ µÚ ½ÃÀÛ!
- * 1. 26°³ÀÇ ¾ËÆÄºª Áß (K-5)°³ÀÇ ¹è¿ï ¼ö ÀÖ´Â ¾ËÆÄºª Á¶ÇÕÀ» ±¸ÇÑ´Ù
- * 2. ´Ü¾î ¸®½ºÆ®¸¦ µ¹¸é¼­ ÀÐÀ» ¼ö ÀÖ´Â ´Ü¾îÀÇ ¼ö¸¦ ±¸ÇÑ´Ù
- * 3. ´Ü¾î¼öÀÇ ÃÖ´ñ°ªÀ» °»½ÅÇØÁØ´Ù
+ * -- í’€ì´ë²• --
+ * (1) Kê°€ 26ê°œë©´ ëª¨ë“  ë‹¨ì–´ë¥¼ ì½ì„ ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— Nì„ ì¶œë ¥í•œë‹¤.
+ * (2) Kê°€ 5 ë¯¸ë§Œì´ë©´ ì½ì„ ìˆ˜ ì—†ê¸° ë•Œë¬¸ì—  0ì„ ì¶œë ¥í•œë‹¤.
+ * (3) ê·¸ì™¸ëŠ” a n t i cë¥¼ ëª¨ë‘ ì•Œê³ ìžˆìŒìœ¼ë¡œ ì²´í¬ + Kì—ì„œ 5ë¥¼ ë¹¼ì¤€ ë’¤ ì‹œìž‘!
+ * 1. 26ê°œì˜ ì•ŒíŒŒë²³ ì¤‘ (K-5)ê°œì˜ ë°°ìš¸ ìˆ˜ ìžˆëŠ” ì•ŒíŒŒë²³ ì¡°í•©ì„ êµ¬í•œë‹¤
+ * 2. ë‹¨ì–´ ë¦¬ìŠ¤íŠ¸ë¥¼ ëŒë©´ì„œ ì½ì„ ìˆ˜ ìžˆëŠ” ë‹¨ì–´ì˜ ìˆ˜ë¥¼ êµ¬í•œë‹¤
+ * 3. ë‹¨ì–´ìˆ˜ì˜ ìµœëŒ“ê°’ì„ ê°±ì‹ í•´ì¤€ë‹¤
  * 
  * 
  */
 
-public class BOJ_G4_1062_°¡¸£Ä§ {
+public class BOJ_G4_1062_ê°€ë¥´ì¹¨ {
 
 	static int N, K, answer;
 	static String[] list;
@@ -39,45 +39,45 @@ public class BOJ_G4_1062_°¡¸£Ä§ {
 		K = Integer.parseInt(st.nextToken());
 		list = new String[N];
 
-		if (K == 26) { // 26°³ÀÇ ¾ËÆÄºªÀ» ¸ðµÎ ¾Ë°íÀÖ´Ù¸é ¸ðµç ´Ü¾î¸¦ ÀÐÀ» ¼ö ÀÖ±â ¶§¹®¿¡ NÀ» Ãâ·ÂÇÑ´Ù.
+		if (K == 26) { // 26ê°œì˜ ì•ŒíŒŒë²³ì„ ëª¨ë‘ ì•Œê³ ìžˆë‹¤ë©´ ëª¨ë“  ë‹¨ì–´ë¥¼ ì½ì„ ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— Nì„ ì¶œë ¥í•œë‹¤.
 			System.out.println(N);
-		} else if (K < 5) { // a n t i c¸¦ ¾Ë¾Æ¾ßÇÏ±â ¶§¹®¿¡ 5 ¹Ì¸¸Àº 0À» Ãâ·ÂÇÑ´Ù.
+		} else if (K < 5) { // a n t i cë¥¼ ì•Œì•„ì•¼í•˜ê¸° ë•Œë¬¸ì— 5 ë¯¸ë§Œì€ 0ì„ ì¶œë ¥í•œë‹¤.
 			System.out.println("0");
 		} else {
-			// ÀÔ·Â
+			// ìž…ë ¥
 			for (int i = 0; i < N; i++) {
 				String line = br.readLine();
-				// ¾Õ : "anta", µÚ : "tica"¸¦ ÀÚ¸£°í ÀúÀå
+				// ì•ž : "anta", ë’¤ : "tica"ë¥¼ ìžë¥´ê³  ì €ìž¥
 				list[i] = line.substring(4, line.length() - 4);
 			}
 
-			// a n t i c ¾Ë°íÀÖÀ½ Ã¼Å©
+			// a n t i c ì•Œê³ ìžˆìŒ ì²´í¬
 			alpha['a' - 'a'] = true;
 			alpha['n' - 'a'] = true;
 			alpha['t' - 'a'] = true;
 			alpha['i' - 'a'] = true;
 			alpha['c' - 'a'] = true;
 
-			// a n t i c »ç¿ë count »©ÁÖ±â
+			// a n t i c ì‚¬ìš© count ë¹¼ì£¼ê¸°
 			K -= 5;
 
-			// ÇÔ¼ö ½ÇÇà
+			// í•¨ìˆ˜ ì‹¤í–‰
 			combi(0, 0);
 			System.out.println(answer);
 		}
 	}
 
 	static void combi(int start, int cnt) {
-		// K°³ÀÇ ¾ËÆÄºªÀ» ¹è¿î µÚ ´Ü¾î ÀÐ±â~~
+		// Kê°œì˜ ì•ŒíŒŒë²³ì„ ë°°ìš´ ë’¤ ë‹¨ì–´ ì½ê¸°~~
 		if (cnt == K) {
-			// ÀÐÀ» ¼ö ÀÖ´Â ´Ü¾î¼öÀÇ ÃÖ´ñ°ªÀ» ÀúÀå
+			// ì½ì„ ìˆ˜ ìžˆëŠ” ë‹¨ì–´ìˆ˜ì˜ ìµœëŒ“ê°’ì„ ì €ìž¥
 			answer = Math.max(answer, countWord());
 			return;
 		}
 
-		// ¹è¿ï ¼ö ÀÖ´Â K°³ÀÇ ¾ËÆÄºª Á¶ÇÕ ±¸ÇÏ±â
+		// ë°°ìš¸ ìˆ˜ ìžˆëŠ” Kê°œì˜ ì•ŒíŒŒë²³ ì¡°í•© êµ¬í•˜ê¸°
 		for (int i = start; i < 26; i++) {
-			if (!alpha[i]) { // ¾ËÆÄºªÀ» »ç¿ëÇÏÁö ¾ÊÀº °æ¿ì
+			if (!alpha[i]) { // ì•ŒíŒŒë²³ì„ ì‚¬ìš©í•˜ì§€ ì•Šì€ ê²½ìš°
 				alpha[i] = true;
 				combi(i + 1, cnt + 1);
 				alpha[i] = false;
@@ -85,22 +85,22 @@ public class BOJ_G4_1062_°¡¸£Ä§ {
 		}
 	}
 
-	// ´Ü¾î Ä«¿îÆÃ ÇÔ¼ö
+	// ë‹¨ì–´ ì¹´ìš´íŒ… í•¨ìˆ˜
 	static int countWord() {
 		int count = 0;
 
 		for (String word : list) {
-			// ÇØ´ç ´Ü¾î¸¦ ÀÐÀ» ¼ö ÀÖ´ÂÁö ÆÇ´Ü
+			// í•´ë‹¹ ë‹¨ì–´ë¥¼ ì½ì„ ìˆ˜ ìžˆëŠ”ì§€ íŒë‹¨
 			boolean readCheck = true;
 			for (int i = 0; i < word.length(); i++) {
-				// ÇØ´ç ¾ËÆÄºªÀ» ¹è¿ìÁö ¾Ê¾Ò´Ù¸é
+				// í•´ë‹¹ ì•ŒíŒŒë²³ì„ ë°°ìš°ì§€ ì•Šì•˜ë‹¤ë©´
 				if (!alpha[word.charAt(i) - 'a']) {
-					readCheck = false; // ´Ü¾î¸¦ ÀÐÀ» ¼ö ¾øÀ½
+					readCheck = false; // ë‹¨ì–´ë¥¼ ì½ì„ ìˆ˜ ì—†ìŒ
 					break;
 				}
 			}
-			if (readCheck) { // ÀÐÀ» ¼ö ÀÖ´Â ´Ü¾î¶ó¸é
-				count++; // Áõ°¡
+			if (readCheck) { // ì½ì„ ìˆ˜ ìžˆëŠ” ë‹¨ì–´ë¼ë©´
+				count++; // ì¦ê°€
 			}
 		}
 
